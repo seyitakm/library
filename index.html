@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="addBookModal">
+      <form action="">
+        <input type="text" name="name" id="" />
+        <input type="text" name="author" id="" />
+        <input type="text" name="publishYear" id="" />
+        <input type="text" name="publishHouse" id="" />
+        <input type="text" name="pagesNumber" id="" />
+      </form>
+    </div>
+    <div class="navbarWrapper">
+      <nav class="navbar">
+        <div>
+          <span class="logo">Books Zeon</span>
+          <hr />
+          <span>shop</span>
+          <hr />
+          <span>about us</span>
+        </div>
+        <div>
+          <div class="searchInput">
+            <img id="searchIcon" src="./assets/search.svg" alt="" />
+            <input id="inputSearch" type="search" class="inputSearch" />
+          </div>
+          <hr />
+          <div id="userEmail" class="userInfo">
+            <img src="./assets/userHome.svg" alt="" />
+            <h4 id="user">user</h4>
+
+            <div id="userModal" class="userModal">
+              <button>add book</button>
+              <button id="logoutBtn">log out</button>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <div id="books-main" class="books-main"></div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="./ui.js"></script>
+  </body>
+</html>

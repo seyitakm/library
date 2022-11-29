@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Caveat:wght@400;500;600;700&family=Parisienne&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Caveat:wght@400;500;600;700&family=Nanum+Myeongjo:wght@400;700;800&family=Parisienne&family=Slabo+27px&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Caveat";
+}
+body {
+  background-color: rgba(238, 233, 232, 0.982);
+}
+.container {
+  padding: 80px;
+  color: black;
+}
+.navbarWrapper {
+  padding: 10px 50px;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.501);
+}
+.navbar div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.navbar div img {
+  width: 20px;
+  height: 20px;
+}
+.navbar div hr {
+  border-right: 1px solid rgba(20, 20, 20, 0.501);
+  height: 19px;
+}
+.navbar .userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+.navbar .userInfo img {
+  width: 20px;
+  height: 20px;
+}
+.navbar .logo {
+  font-family: "Caveat";
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.searchInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.inputSearch {
+  display: none;
+  background: transparent;
+  border: 1px solid black;
+  outline: none;
+  width: 124px;
+  padding: 4px;
+  border-radius: 9px;
+}
+.showInput {
+  display: block;
+}
+
+.navbar .userModal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90px;
+  height: 59px;
+  padding: 0 2px;
+  gap: 2px;
+  border-radius: 2px;
+
+  border: 1px solid rgba(0, 0, 0, 0.501);
+  background-color: rgba(238, 233, 232, 0.982);
+  position: absolute;
+  top: 30px;
+  right: -10%;
+  z-index: 2;
+}
+.navbar .userModal button {
+  width: 100%;
+}
+.navbar .showUserModal {
+  display: flex;
+}

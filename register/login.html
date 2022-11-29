@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="./register.css" />
+    <link rel="stylesheet" href="./login.css" />
+    <title>my library</title>
+  </head>
+  <body>
+    <div class="container register">
+      <div class="wrapper">
+        <div class="registerForm">
+          <h1>Login page</h1>
+
+          <div class="registerForm_inputs">
+            <div>
+              <img src="../assets/email.svg" alt="" />
+              <input id="email" type="text" placeholder="email" />
+            </div>
+            <div>
+              <img src="../assets/password-icon.svg" alt="" />
+              <input
+                type="password"
+                id="password"
+                required
+                placeholder="password"
+              />
+            </div>
+            <button id="loginBtn" class="registerBtn">Log in</button>
+          </div>
+          <div class="registerForm_info">
+            <h4>Don't have an account?</h4>
+            <a href="./register.html">
+              <button>Register</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./login.js"></script>
+  </body>
+</html>
