@@ -2,13 +2,16 @@ const booksMain = document.getElementById("books-main");
 const userSpan = document.getElementById("user");
 const APIbook = "http://localhost:1717/books/";
 
+// GET USER
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("username");
 if (user) {
   userSpan.innerText = user;
 }
 getBooks(token);
+// GET USER END
 
+// READ
 async function getBooks(token) {
   try {
     let response = await fetch(APIbook, {
@@ -34,17 +37,18 @@ function mapBooks(mapped) {
   console.log(mapped);
   mapped.forEach((item) => {
     const book = document.createElement("div");
-    book.classList.add("book");
-    const editBook = document.createElement("button");
-    editBook.classList.add("editBtn");
     const deleteBook = document.createElement("button");
+    const editBook = document.createElement("button");
+    book.classList.add("book");
+    editBook.classList.add("editBtn");
     deleteBook.classList.add("deleteBtn");
 
     deleteBook.addEventListener("click", () => {
       deleteBookId(item.id, token);
     });
     editBook.addEventListener("click", () => {
-      editBookId(item.id, token, (item.name.innerText = "hello"));
+      getOneBook(item.id, token);
+      // editBookId(item.id, token, (item.name.innerText = "hello"));
     });
     book.innerHTML = `
     <img src=${item.img} />
@@ -59,9 +63,10 @@ function mapBooks(mapped) {
     book.append(deleteBook);
   });
 }
+// READ END
 
+// CREATE
 const form = document.getElementById("createBook");
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const inpName = document.getElementById("formInp1");
@@ -82,7 +87,6 @@ form.addEventListener("submit", (e) => {
 
   createBook(token, book);
 });
-
 async function createBook(token, book) {
   try {
     let response = await fetch(`${APIbook}create/`, {
@@ -99,6 +103,9 @@ async function createBook(token, book) {
     console.log(error);
   }
 }
+// CREATE END
+
+// DELETE
 async function deleteBookId(id, token) {
   console.log(id);
   console.log(token);
@@ -114,6 +121,47 @@ async function deleteBookId(id, token) {
     console.log(result);
   } catch (error) {
     console.log(error);
+  }
+}
+// DELETE END
+
+// EDIT
+async function getOneBook(id, token) {
+  try {
+    let response = await fetch(`${APIbook}${id}`, {
+      method: "GET",
+      headers: {
+        "X-Auth": token,
+      },
+    });
+    let result = await response.json();
+    console.log(result);
+    showEditModal(result);
+  } catch (error) {
+    console.log(error);
+  }
+  function showEditModal(result) {
+    const editName = document.getElementById("editName");
+    const editAuthor = document.getElementById("editAuthor");
+    const editPublishYear = document.getElementById("editPublishYear");
+    const editPublishHouse = document.getElementById("editPublishHouse");
+    const editPublishNumber = document.getElementById("editPublishNumber");
+    const editImage = document.getElementById("editImage");
+
+    editName.value = result.name;
+    editAuthor.value = result.author;
+    // editPublishYear.value = result.publishYear;
+    // editPublishHouse.value = result.publishHouse;
+    // editPublishNumber.value = result.publishNumber;
+    // editImage.value = result.img;
+
+    const editBookModal = document.getElementById("editBookModal");
+    const editBookOverlay = document.getElementById("editBookOverlay");
+    editBookModal.classList.add("showModal");
+
+    editBookOverlay.addEventListener("click", () => {
+      editBookModal.classList.remove("showModal");
+    });
   }
 }
 async function editBookId(id, token, newBook) {
@@ -137,9 +185,10 @@ async function editBookId(id, token, newBook) {
     console.log(error);
   }
 }
+// EDIT END
 
+// LOGOUT
 const logoutBtn = document.getElementById("logoutBtn");
-
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("username");
@@ -148,3 +197,4 @@ function logout() {
 logoutBtn.addEventListener("click", () => {
   logout();
 });
+// LOGOUT END
