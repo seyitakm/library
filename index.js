@@ -39,9 +39,11 @@ function mapBooks(mapped) {
     const book = document.createElement("div");
     const deleteBook = document.createElement("button");
     const editBook = document.createElement("button");
+    const bookDetail = document.createElement("img");
     book.classList.add("book");
     editBook.classList.add("editBtn");
     deleteBook.classList.add("deleteBtn");
+    bookDetail.classList.add("bookDetail");
 
     deleteBook.addEventListener("click", () => {
       deleteBookId(item.id, token);
@@ -50,20 +52,28 @@ function mapBooks(mapped) {
       getOneBook(item.id, token);
       // editBookId(item.id, token, (item.name.innerText = "hello"));
     });
+    bookDetail.addEventListener("click", () => {
+      showBookDetails(item.id, token);
+    });
     book.innerHTML = `
     <img src=${item.img} />
       <h3>${item.name}</h3>
       <p>${item.author}</p>
         `;
-    booksMain.append(book);
     editBook.innerText = "Edit";
+    bookDetail.setAttribute("src", "./assets/Animation.gif");
     deleteBook.innerText = "Delete";
-    deleteBook.classList.add("deleteBook");
+    book.append(bookDetail);
     book.append(editBook);
     book.append(deleteBook);
+    booksMain.append(book);
   });
 }
 // READ END
+
+// DETAILS
+function showBookDetails(id, token) {}
+// DETAILS END
 
 // CREATE
 const form = document.getElementById("createBook");

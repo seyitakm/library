@@ -4,9 +4,9 @@ const inputSearch = document.getElementById("inputSearch");
 searchIcon.addEventListener("mouseenter", () => {
   inputSearch.classList.add("showInput");
 });
-// inputSearch.addEventListener("mouseleave", () => {
-//   inputSearch.classList.remove("showInput");
-// });
+inputSearch.addEventListener("mouseleave", () => {
+  inputSearch.classList.remove("showInput");
+});
 const userEmail = document.getElementById("userEmail");
 const userModal = document.getElementById("userModal");
 
