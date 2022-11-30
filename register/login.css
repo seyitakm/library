@@ -2,3 +2,7 @@ body {
   background-image: url("https://c4.wallpaperflare.com/wallpaper/231/78/491/library-books-wallpaper-preview.jpg");
   background-size: cover;
 }
+.errorSpan {
+  text-align: center;
+  color: rgb(210, 9, 9);
+}

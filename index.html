@@ -8,13 +8,53 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="addBookModal">
-      <form action="">
-        <input type="text" name="name" id="" />
-        <input type="text" name="author" id="" />
-        <input type="text" name="publishYear" id="" />
-        <input type="text" name="publishHouse" id="" />
-        <input type="text" name="pagesNumber" id="" />
+    <div id="addBookModal" class="addBookModal">
+      <div id="addBookOverlay" class="addBookOverlay"></div>
+      <form id="createBook" class="formAdd">
+        <h3>Add new book</h3>
+        <input
+          type="text"
+          name="name"
+          id="formInp1"
+          placeholder="name"
+          class="createBookInputs"
+        />
+        <input
+          type="text"
+          name="author"
+          id="formInp2"
+          placeholder="author"
+          class="createBookInputs"
+        />
+        <input
+          type="text"
+          name="publishYear"
+          id="formInp3"
+          class="createBookInputs"
+          placeholder="publish year"
+        />
+        <input
+          type="text"
+          name="publishHouse"
+          id="formInp4"
+          class="createBookInputs"
+          placeholder="publish house"
+        />
+        <input
+          type="text"
+          name="pagesNumber"
+          id="formInp5"
+          class="createBookInputs"
+          placeholder="pages number"
+        />
+        <input
+          type="text"
+          name="image"
+          id="formInp6"
+          class="createBookInputs"
+          placeholder="image url"
+        />
+        <button type="submit">add book</button>
       </form>
     </div>
     <div class="navbarWrapper">
@@ -37,7 +77,7 @@
             <h4 id="user">user</h4>
 
             <div id="userModal" class="userModal">
-              <button>add book</button>
+              <button id="addBookBtn">add book</button>
               <button id="logoutBtn">log out</button>
             </div>
           </div>

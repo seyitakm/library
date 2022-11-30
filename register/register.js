@@ -5,6 +5,7 @@ const password = document.getElementById("password");
 const firstName = document.getElementById("firstName");
 const age = document.getElementById("age");
 const successModal = document.querySelector(".successModal");
+const errorSpan = document.getElementById("errorSpan");
 
 const handleInput = () => {
   if (!username.value || !password.value) {

@@ -33,7 +33,7 @@ async function login(user) {
     });
     let result = await response.json();
     if (result) {
-      console.log(result);
+      // console.log(result);
       localStorage.setItem("token", result.token);
       localStorage.setItem("username", result.data.username);
     }
@@ -41,6 +41,9 @@ async function login(user) {
     loginBtn.innerText = "Log in";
     redirectToLogin();
   } catch (error) {
+    errorSpan.innerText = error;
+    loginBtn.classList.remove("disabled");
+    loginBtn.innerText = "Log in";
     console.log(error);
   }
 }
