@@ -30,15 +30,3 @@ addBookBtn.addEventListener("click", () => {
 addBookOverlay.addEventListener("click", () => {
   addBookModal.classList.remove("showModal");
 });
-// const editBookModal = document.getElementById("editBookModal");
-// const editBookBtn = document.getElementById("editBookBtn");
-// // const editBookForm = document.getElementById("editBook");
-// const editBookOverlay = document.getElementById("editBookOverlay");
-
-// editBookBtn.addEventListener("click", () => {
-//   editBookModal.classList.add("showModal");
-// });
-
-// editBookOverlay.addEventListener("click", () => {
-//   editBookModal.classList.remove("showModal");
-// });

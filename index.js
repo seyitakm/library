@@ -145,40 +145,51 @@ async function getOneBook(id, token) {
     const editAuthor = document.getElementById("editAuthor");
     const editPublishYear = document.getElementById("editPublishYear");
     const editPublishHouse = document.getElementById("editPublishHouse");
-    const editPublishNumber = document.getElementById("editPublishNumber");
+    const editPagesNumber = document.getElementById("editPagesNumber");
     const editImage = document.getElementById("editImage");
 
-    editName.value = result.name;
-    editAuthor.value = result.author;
-    // editPublishYear.value = result.publishYear;
-    // editPublishHouse.value = result.publishHouse;
-    // editPublishNumber.value = result.publishNumber;
-    // editImage.value = result.img;
+    editName.value = result.name ? result.name : "";
+    editAuthor.value = result.author ? result.author : "";
+    editPublishYear.value = result.publishYear ? result.publishYear : "";
+    editPublishHouse.value = result.publishHouse ? result.publishHouse : "";
+    editPagesNumber.value = result.pagesNumber ? result.pagesNumber : "";
+    editImage.value = result.img ? result.img : "";
 
     const editBookModal = document.getElementById("editBookModal");
     const editBookOverlay = document.getElementById("editBookOverlay");
     editBookModal.classList.add("showModal");
 
+    const editBook = document.getElementById("editBook");
+    editBook.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const editedBook = {
+        name: editName.value,
+        author: editAuthor.value,
+        publishYear: +editPublishYear.value,
+        publishHouse: editPublishHouse.value,
+        pagesNumber: +editPagesNumber.value,
+        img: editImage.value,
+      };
+
+      editBookId(result.id, token, editedBook);
+    });
     editBookOverlay.addEventListener("click", () => {
       editBookModal.classList.remove("showModal");
     });
   }
 }
-async function editBookId(id, token, newBook) {
-  console.log(id);
-  console.log(token);
-
+async function editBookId(id, token, editedBook) {
+  console.log(editedBook);
   try {
-    let response = await fetch(
-      `${APIbook}update/${id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "X-Auth": token,
-        },
+    let response = await fetch(`${APIbook}update/${id}`, {
+      method: "PUT",
+      headers: {
+        "X-Auth": token,
+        "Content-Type": "application/json",
       },
-      JSON.stringify(newBook)
-    );
+      body: JSON.stringify(editedBook),
+    });
     let result = await response.json();
     console.log(result);
   } catch (error) {
